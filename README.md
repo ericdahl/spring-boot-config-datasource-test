@@ -8,7 +8,8 @@ Example showing an issue when using ```@RefreshScope``` and conditional bean def
 ### Run
 ```
 $ mvn spring-boot:run
-...
+```
+
 ### Check on DataSources
 Open http://localhost:8080/health
 
