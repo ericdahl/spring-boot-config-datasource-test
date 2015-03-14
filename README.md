@@ -9,14 +9,8 @@ Example showing an issue when using ```@RefreshScope``` and conditional bean def
 ```
 $ mvn spring-boot:run
 ...
-Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'customDataSource': Requested bean is currently in creation: Is there an unresolvable circular reference?
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:258)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1127)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1051)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:949)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
-	... 49 more
-```
+### Check on DataSources
+Open http://localhost:8080/health
 
-Note: Using spring-cloud-config-client version 1.0.0.RC3 does not have this issue.
+There's two DataSources but there should just be one because the spring-boot provided one
+should not be created.
